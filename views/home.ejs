@@ -1,0 +1,19 @@
+<%- include("partials/header") %> 
+    <div class="container-fluid main-container">
+        <h1>Home</h1>
+        <p> <%= starting_content %> </p>
+
+        <% posts.forEach(post => { %>
+            <div>
+                <% if (post.content.length != 100) { %>
+                    <% post.content = post.content.slice(0, 100) + '...' %>
+                <% } %>
+
+                <h2><%= post.title %> </h2>
+                <p><%= post.content %> <a href="/posts/<%= post.title %>">Read More</a></p>
+            </div>
+        <% }); %> 
+    </div>
+<%- include("partials/footer") %> 
+
+<img src="https://media.giphy.com/media/3o7aCSPqXE5C6T8tBC/giphy.gif">
